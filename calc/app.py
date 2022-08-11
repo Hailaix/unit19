@@ -26,3 +26,16 @@ def div_route():
     a = int(request.args["a"])
     b = int(request.args["b"])
     return f"{div(a,b)}"
+
+operations = {
+    "add" : add,
+    "sub" : sub,
+    "mult": mult,
+    "div" : div
+}
+@app.route("/math/<operation>")
+def math_route(operation):
+    opp = operations[operation]
+    a = int(request.args["a"])
+    b = int(request.args["b"])
+    return f"{opp(a,b)}"

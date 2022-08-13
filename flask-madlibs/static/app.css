@@ -1,0 +1,21 @@
+.navbar {
+    background-color: black;
+    text-align: center;
+}
+.navbar a {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+}
+.navbar a:hover {
+    background-color: lightgrey;
+    color: black;
+}
+body {
+    padding: 0;
+    margin: 0;
+}
+main {
+    text-align: center;
+}

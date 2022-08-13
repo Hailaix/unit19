@@ -6,14 +6,21 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = "secret"
 debug = DebugToolbarExtension(app)
 
-story = stories.story
+#story = stories.story
+storylist = [stories.story,stories.story2]
 
 @app.route("/")
 def root_route():
-    """Form page for the madlib"""
-    return render_template("rootform.html", prompts=story.prompts)
+    return render_template("root.html",list=storylist)
 
-@app.route("/story")
-def story_route():
+@app.route("/form/<int:storyidx>")
+def form_route(storyidx):
+    """Form page for the selected story"""
+    story = storylist[storyidx]
+    return render_template("form.html", prompts=story.prompts, sid=storyidx)
+
+@app.route("/story/<int:storyidx>")
+def story_route(storyidx):
+    story = storylist[storyidx]
     """ page containing the completed madlib"""
-    return render_template("storypage.html", story=story.generate(request.args))
+    return render_template("storypage.html", story=story.generate(request.args), stitle=story.title)

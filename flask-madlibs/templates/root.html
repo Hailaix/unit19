@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Story Directory{% endblock %}
+{% block body %}
+    <h2>Choose your story:</h2>
+    {% for story in list %}
+    <a href="/form/{{list.index(story)}}">{{story.title}}</a>
+    {% endfor %}
+{% endblock %}

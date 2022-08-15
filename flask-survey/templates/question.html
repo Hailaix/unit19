@@ -5,9 +5,10 @@
     <h2>{{q.question}}</h2>
     <form action="/answer" method="post">
         {% for choice in q.choices %}
-        <input type="radio" name="choice" id="choice{{q.choices.index(choice)}}" value="{{choice}}">
-        <label for="choice{{q.choices.index(choice)}}">{{choice}}</label>
+            <input type="radio" name="choice" id="choice{{q.choices.index(choice)}}" value="{{choice}}">
+            <label for="choice{{q.choices.index(choice)}}">{{choice}}</label>
         {% endfor %}
+        <br>
         <input type="submit" value="Submit">
     </form>
 {% endblock %}

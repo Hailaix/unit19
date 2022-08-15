@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, flash
 from surveys import satisfaction_survey
 from flask_debugtoolbar import DebugToolbarExtension
 
@@ -21,6 +21,7 @@ def question_route(num):
             question = satisfaction_survey.questions[num]
             return render_template("question.html",q=question,i=num)
         else:
+            flash("Invalid Question", "error")
             return redirect(f"/question/{len(survey_resps)}")
     else:
         return redirect("/thanks")
@@ -34,3 +35,4 @@ def answer_route():
 def thanks_route():
     """route to the thank you page once a survey is completed"""
     return render_template("thanks.html")
+    

@@ -9,6 +9,10 @@
             <label for="choice{{q.choices.index(choice)}}">{{choice}}</label>
         {% endfor %}
         <br>
+        {% if q.allow_text %}
+            <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Short answer (optional)"></textarea>
+            <br>
+        {% endif %}
         <input type="submit" value="Submit">
     </form>
 {% endblock %}

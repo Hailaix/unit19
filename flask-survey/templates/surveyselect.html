@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Survey select{% endblock %}
+{% block contents %}
+    <h1>Select a survey to fill out:</h1>
+    {% for survey in s.keys() %}
+        <a href="/survey/{{survey}}">{{survey}}</a>
+    {% endfor %}
+{% endblock %}

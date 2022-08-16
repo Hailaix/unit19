@@ -4,4 +4,11 @@
 {% block contents %}
     <h2>Thank you!</h2>
     <p>You have completed the survey!</p>
+    <p>Answers:</p>
+    <ul>
+        {% for q in s.questions %}
+            <li><b>{{q.question}}</b> {{" ".join(session["responses"][s.questions.index(q)])}}</li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}

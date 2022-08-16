@@ -19,6 +19,9 @@
 <body>
     <div class="container">
         <div class="row">
+            <h1 class="text-center col">Boggle!</h1>
+        </div>
+        <div class="row">
             <div class="alert text-center col" id="lastguess"></div>
         </div>
         <div class="row">
@@ -33,10 +36,11 @@
             </table>
         </div>
         <div class="row">
-            <form action="/guess" id="guessform">
+            <form action="/guess" id="guessform" class="col">
                 <input type="text" name="guess" id="guess">
                 <input type="submit" value="Submit Guess">
             </form>
+            <div class="col">Score: <span id="score">0</span></div>
         </div>
     </div>
     

@@ -2,6 +2,7 @@
 const $gform = $("#guessform")
 const $guess = $("#guess")
 const $last = $("#lastguess")
+const score = document.getElementById("score")
 
 $gform.on("submit", async function (e) {
     e.preventDefault();
@@ -18,6 +19,7 @@ $gform.on("submit", async function (e) {
         if ($last.hasClass("alert-danger")) {
             $last.toggleClass("alert-danger")
         }
+        score.innerText = parseInt(score.innerText) + $guess[0].value.length
     }
     else {
         if (res.data.result === "not-on-board") {
@@ -33,6 +35,5 @@ $gform.on("submit", async function (e) {
                 $last.toggleClass("alert-danger")
             }
     }
-
-
+    $guess[0].value = ""
 })

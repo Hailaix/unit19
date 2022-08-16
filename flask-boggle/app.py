@@ -14,9 +14,9 @@ def index():
     session["board"] = boggle_game.make_board()
     return render_template("index.html")
 
-@app.route("/guess", methods=["post"])
+@app.route("/guess")
 def guess_route():
-    guess = request.form["guess"]
+    guess = request.args["guess"]
     result = boggle_game.check_valid_word(session["board"],guess)
     return jsonify({"result": result})
 

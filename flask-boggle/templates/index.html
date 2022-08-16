@@ -19,7 +19,10 @@
 <body>
     <div class="container">
         <div class="row">
-            <table class="table table-bordered table-dark table-striped board">
+            <div class="alert text-center col" id="lastguess"></div>
+        </div>
+        <div class="row">
+            <table class="table table-bordered table-dark table-striped board col">
                 {% for row in session["board"] %}
                 <tr>
                     {% for char in row %}
@@ -30,15 +33,10 @@
             </table>
         </div>
         <div class="row">
-            <form action="/guess" id="guessform" method="post">
+            <form action="/guess" id="guessform">
                 <input type="text" name="guess" id="guess">
                 <input type="submit" value="Submit Guess">
             </form>
-        </div>
-        <div class="row">
-            <div id="lastguess">
-
-            </div>
         </div>
     </div>
     

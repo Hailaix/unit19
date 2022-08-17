@@ -22,7 +22,10 @@
             <h1 class="text-center col">Boggle!</h1>
         </div>
         <div class="row">
-            <div class="alert text-center col" id="lastguess"></div>
+            <div class="alert alert-success text-center col" id="alert">Start!</div>
+        </div>
+        <div class="row">
+            <h5 class="col text-center">Highscore: {{session.get('highscore',0)}} Attempts: {{session.get("count",0)}}</h5>
         </div>
         <div class="row">
             <table class="table table-bordered table-dark table-striped board col">
@@ -36,11 +39,17 @@
             </table>
         </div>
         <div class="row">
-            <form action="/guess" id="guessform" class="col">
+            <form action="/guess" id="guessform" class="col-6">
                 <input type="text" name="guess" id="guess">
-                <input type="submit" value="Submit Guess">
+                <input type="submit" value="Submit Guess" >
             </form>
-            <div class="col">Score: <span id="score">0</span></div>
+            <div class="col-3">Score: <span id="score">0</span></div>
+            <div class="col-3">Time: <span id="time">60</span></div>
+        </div>
+        <div class="row">
+            <p class="col">Already Guessed:</p>
+            <ul class="col" id="guessed">
+            </ul>
         </div>
     </div>
     

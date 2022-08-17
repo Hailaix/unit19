@@ -20,3 +20,10 @@ def guess_route():
     result = boggle_game.check_valid_word(session["board"],guess)
     return jsonify({"result": result})
 
+@app.route("/score", methods=["post"])
+def score_route():
+    highscore = session.get("highscore",0)
+    score = request.json["score"]
+    session["highscore"] = max(score,highscore)
+    session["count"] = session.get("count",0) + 1
+    return jsonify({"newhighscore": score > highscore})
